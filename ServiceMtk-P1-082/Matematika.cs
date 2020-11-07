@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,27 +13,102 @@ namespace ServiceMtk_P1_082
     {
         public int Bagi(int a, int b)
         {
-            return a / b;
+            try
+            {
+                return a / b;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Secara Default
+                //thhrow new Exception(ex.Message)//pesan error secara Default
+                //throw new FaultException("Pesan Salah); //Untuk meloloskan pesan error yang di kirim ke client
+
+                MathFault mf = new MathFault();
+                mf.Kode = "Input yang anda masukkan salah";
+                mf.Pesan = "masukkan input yang benar";
+                throw new FaultException<MathFault>(mf);
+            }
         }
         public int Kali(int a, int b)
         {
-            return a * b;
+            try
+            {
+                return a * b;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Secara Default
+                //thhrow new Exception(ex.Message)//pesan error secara Default
+                //throw new FaultException("Pesan Salah); //Untuk meloloskan pesan error yang di kirim ke client
+
+                MathFault mf = new MathFault();
+                mf.Kode = "Input yang anda masukkan salah";
+                mf.Pesan = "masukkan input yang benar";
+                throw new FaultException<MathFault>(mf);
+            }
         }
         public int Kurang(int a, int b)
         {
-            return a - b;
+            try
+            {
+                return a - b;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Secara Default
+                //thhrow new Exception(ex.Message)//pesan error secara Default
+                //throw new FaultException("Pesan Salah); //Untuk meloloskan pesan error yang di kirim ke client
+
+                MathFault mf = new MathFault();
+                mf.Kode = "Input yang anda masukkan salah";
+                mf.Pesan = "masukkan input yang benar";
+                throw new FaultException<MathFault>(mf);
+            }
         }
         public int Tambah(int a, int b)
         {
-            return a + b;
+            try
+            {
+                return a + b;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Secara Default
+                //thhrow new Exception(ex.Message)//pesan error secara Default
+                //throw new FaultException("Pesan Salah); //Untuk meloloskan pesan error yang di kirim ke client
+
+                MathFault mf = new MathFault();
+                mf.Kode = "Input yang anda masukkan salah";
+                mf.Pesan = "masukkan input yang benar";
+                throw new FaultException<MathFault>(mf);
+            }
         }
        
         public Koordinat TKoordinat(Koordinat a, Koordinat b)
         {
-            Koordinat hasil = new Koordinat();
-            hasil.X = a.X + b.X;
-            hasil.Y = a.Y + b.Y;
-            return hasil;
+            try
+            {
+                Koordinat hasil = new Koordinat();
+                hasil.X = a.X + b.X;
+                hasil.Y = a.Y + b.Y;
+                return hasil;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Secara Default
+                //thhrow new Exception(ex.Message)//pesan error secara Default
+                //throw new FaultException("Pesan Salah); //Untuk meloloskan pesan error yang di kirim ke client
+
+                MathFault mf = new MathFault();
+                mf.Kode = "Input yang anda masukkan salah";
+                mf.Pesan = "masukkan input yang benar";
+                throw new FaultException<MathFault>(mf);
+            }
         }
 
     }
